@@ -48,10 +48,20 @@
         "
         formControlName="beerStyle"
       >
+        <option [ngValue]="null" disabled>Choose your beer style</option>
         <option *ngFor="let style of beerTypes" [ngValue]="style">
           {{ style }}
         </option>
       </select>
+      <button
+        type="submit"
+        [disabled]="beerForm.invalid"
+        class="btn btn-primary"
+        (click)="onSubmit()"
+        routerLink=""
+      >
+        Submit
+      </button>
     </form>
   </div>
 </div>
