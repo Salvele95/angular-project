@@ -1,12 +1,57 @@
 <div class="card shadow">
-<div class="card-header">Add Beer</div>
-<div class="card-body">
-  <form [formGroup]="beerForm">
-    <input
-    type="text"
-    class="form-control"
-    formControlName="beerName"
-    />
-  </form>
-</div>
+  <div class="card-header">Add Beer</div>
+  <div class="card-body">
+    <form [formGroup]="beerForm">
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Beer title"
+        [ngClass]="
+          beerForm.controls.beerName.invalid &&
+          beerForm.controls.beerName.touched
+            ? 'is-invalid'
+            : ''
+        "
+        formControlName="beerName"
+      />
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="UPC code"
+        [ngClass]="
+          beerForm.controls.upc.invalid && beerForm.controls.upc.touched
+            ? 'is-invalid'
+            : ''
+        "
+        formControlName="upc"
+      />
+      <input
+        type="number"
+        class="form-control mb-3"
+        placeholder="Price"
+        [ngClass]="
+          beerForm.controls.price.invalid && beerForm.controls.price.touched
+            ? 'is-invalid'
+            : ''
+        "
+        formControlName="price"
+      />
+
+      <select
+        class="form-select mb-3"
+        placeholder="Beer Style"
+        [ngClass]="
+          beerForm.controls.beerStyle.invalid &&
+          beerForm.controls.beerStyle.touched
+            ? 'is-invalid'
+            : ''
+        "
+        formControlName="beerStyle"
+      >
+        <option *ngFor="let style of beerTypes" [ngValue]="style">
+          {{ style }}
+        </option>
+      </select>
+    </form>
+  </div>
 </div>
