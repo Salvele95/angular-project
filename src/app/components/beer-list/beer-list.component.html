@@ -2,7 +2,7 @@
   <h1 class="card-header">Lista birre</h1>
 
   <div class="card-body">
-    <ul class="list-group" *ngFor="let item of beers">
+    <ul class="list-group" *ngFor="let item of beerService.beers">
       <app-beer [beer]="item"></app-beer>
     </ul>
   </div>
